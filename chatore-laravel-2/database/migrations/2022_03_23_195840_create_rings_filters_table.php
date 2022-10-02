@@ -1,0 +1,36 @@
+<?php
+
+use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
+
+return new class extends Migration
+{
+    /**
+     * Run the migrations.
+     *
+     * @return void
+     */
+    public function up()
+    {
+        Schema::create('rings_filters', function (Blueprint $table) {
+            $table->id();
+            $table->string('product_name');
+            $table->string('ring_filter_band')->nullable();
+            $table->string('ring_filter_style')->nullable();
+            $table->string('bracelet_filter_special')->nullable();
+            $table->string('ring_filter_gift')->nullable();
+            $table->timestamps();
+        });
+    }
+
+    /**
+     * Reverse the migrations.
+     *
+     * @return void
+     */
+    public function down()
+    {
+        Schema::dropIfExists('rings_filters');
+    }
+};
